@@ -44,12 +44,12 @@
     	<version>3.17</version>
     </dependency>
     <dependency>
-    	<groupId>org.apache.poi</groupId>
+    	<groupId>org.apache.xmlbeans</groupId>
     	<artifactId>xmlbeans</artifactId>
     	<version>2.6.0</version>
     </dependency>
     <dependency>
-    	<groupId>org.apache.poi</groupId>
+    	<groupId>org.apache.commons</groupId>
     	<artifactId>commons-collections4</artifactId>
     	<version>4.1</version>
     </dependency>
@@ -59,7 +59,7 @@
     	<version>1.1</version>
     </dependency>
     <dependency>
-    	<groupId>org.apache.poi</groupId>
+    	<groupId>xml-apis</groupId>
     	<artifactId>xml-apis</artifactId>
     	<version>2.0.2</version>
     </dependency>
