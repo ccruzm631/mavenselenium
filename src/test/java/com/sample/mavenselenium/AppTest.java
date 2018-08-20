@@ -1,5 +1,8 @@
 package com.sample.mavenselenium;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -33,6 +36,12 @@ public class AppTest
      */
     public void testApp()
     {
+    	System.setProperty("webdriver.gecko.driver", "Z:\\\\PruebasQA\\\\Driver\\\\geckodriver.exe");
+		
+    	WebDriver driver = new FirefoxDriver();
+		
+		driver.get("http://10.53.29.252:8080/Asistencia/");
+		driver.close();
         assertTrue( true );
     }
 }
