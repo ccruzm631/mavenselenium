@@ -36,7 +36,7 @@ public class AppTest
      */
     public void testApp()
     {
-    	System.setProperty("webdriver.gecko.driver", "Z:\\\\PruebasQA\\\\Driver\\\\geckodriver.exe");
+    	System.setProperty("webdriver.gecko.driver", "C:\\\\tools\\\\geckodriver.exe");
 		
     	WebDriver driver = new FirefoxDriver();
 		
