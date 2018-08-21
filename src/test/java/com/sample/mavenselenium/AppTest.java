@@ -40,8 +40,8 @@ public class AppTest
 		
     	WebDriver driver = new FirefoxDriver();
 		
-		driver.get("http://10.53.29.252:8080/Asistencia/");
-		driver.close();
+		driver.get("http://www.google.com");//10.53.29.252:8080/Asistencia/");
+//		driver.close();
         assertTrue( true );
     }
 }
