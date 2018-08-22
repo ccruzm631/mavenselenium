@@ -35,11 +35,11 @@ public class AppTest
      */
     public void testApp()
     {
-    	System.out.println("Start Test App");
+    	System.out.println("==>Start Test App");
     	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe");
 		
     	FirefoxDriver driver = new FirefoxDriver();
-		driver.get("https://www.google.com.mx");//10.53.29.252:8080/Asistencia/");
+		driver.get("http://10.53.29.252:8080/Asistencia/");
 //		driver.close();
         assertTrue( true );
     }
