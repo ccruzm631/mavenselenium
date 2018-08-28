@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -53,12 +54,12 @@ public class AppTest
 //		driver.close();
 
     	DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-//    	capabilities.setCapability("marionette", false);
+    	capabilities.setCapability("marionette", false);
 //    	capabilities.setCapability("networkConnectionEnabled", true);
 //    	capabilities.setCapability("browserConnectionEnabled", true);
 //    	
 		try {
-			WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+			WebDriver driver = new RemoteWebDriver(new URL("http://localhost:8089/wd/hub"), capabilities);
 			driver.get("http://10.53.29.252:8080/Asistencia/");
 		} catch (MalformedURLException e) {
 			System.out.println(e.getMessage());
