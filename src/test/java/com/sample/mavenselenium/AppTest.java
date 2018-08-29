@@ -49,7 +49,7 @@ public class AppTest
     	System.out.println("==>Start Test App");
 //    	System.setProperty("webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe");
 //    	instanceof 
-    	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe"); 
+    	System.setProperty("webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe"); 
 //    	System.setProperty("webdriver.firefox.marionette", "");
     	
     	WebDriver driver = new FirefoxDriver();
