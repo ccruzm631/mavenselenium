@@ -61,35 +61,36 @@ public class AppTest
 //		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 //		driver.close();
 
-    	FirefoxOptions options = new FirefoxOptions()
+    	FirefoxOptions options = new FirefoxOptions();
 //    			//.addPreference("browser.startup.page", 0)
-    			.addPreference("browser.startup.homepage", "http://10.53.29.252:8080/Asistencia/");
+//    			.addPreference("browser.startup.homepage", "http://10.53.29.252:8080/Asistencia/");
 //    			.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe")
 //    			.setLegacy(true);
 //    	options.setLogLevel(FirefoxDriverLogLevel.TRACE);
 //    	options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 //    	options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-    	options.setCapability("marionette", false);
+//    	options.setCapability("marionette", false);
 //    	options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
     	//options.setAcceptInsecureCerts(false);
     	
   
 		try {
-			FirefoxDriver ffd = new FirefoxDriver(options);
+			FirefoxDriver driver = new FirefoxDriver();
 		
 //			WebDriver driver = new RemoteWebDriver(new URL("http://localhost:8089/wd/hub"), ffd.getCapabilities());
-//			driver.get("http://10.53.29.252:8080/Asistencia/");
+			
+			driver.navigate().to("http://10.53.29.252:8080/Asistencia/");
 //			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 //			
-//			WebElement objUserField = driver.findElement(By.id("numempleado"));
-//			objUserField.click();	
+			WebElement objUserField = driver.findElement(By.id("numempleado"));
+			objUserField.click();	
 //			
-//			objUserField.sendKeys("163796");
+			objUserField.sendKeys("163796");
 			
 //			driver.close();
 //			driver.quit();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("Error: "+e.getLocalizedMessage());
 		}
     	
         assertTrue( true );
