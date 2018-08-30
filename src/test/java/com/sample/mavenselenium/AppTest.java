@@ -50,7 +50,7 @@ public class AppTest
 //    	System.setProperty("webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe");
 
     	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe"); 
-//    	System.setProperty("webdriver.firefox.marionette", "");
+//    	System.setProperty("webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe");
     	
 //    	WebDriver driver = new FirefoxDriver();
 //    	driver.get("http://10.53.29.252:8080/Asistencia/");
@@ -69,14 +69,14 @@ public class AppTest
 //    	options.setLogLevel(FirefoxDriverLogLevel.TRACE);
 //    	options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 //    	options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-//    	options.setCapability("marionette", false);
+    	options.setCapability("marionette", true);
 //    	options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
     	//options.setAcceptInsecureCerts(false);
     	
   
 		try {
-			FirefoxDriver driver = new FirefoxDriver();
-		
+			FirefoxDriver driver = new FirefoxDriver(options);
+			
 //			WebDriver driver = new RemoteWebDriver(new URL("http://localhost:8089/wd/hub"), ffd.getCapabilities());
 			
 			driver.navigate().to("http://10.53.29.252:8080/Asistencia/");
