@@ -53,7 +53,7 @@ public class AppTest
     public void testApp()
     {
     	System.out.println("==>Start Test App");
-    	test();
+    	testMario();
     	
 //    	System.setProperty("webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe");
 
@@ -153,6 +153,7 @@ public class AppTest
     	ffoptions.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
     	ffoptions.setCapability(CapabilityType.HAS_NATIVE_EVENTS, true);
     	ffoptions.setCapability("acceptSslCerts", true);
+    	ffoptions.setCapability("marionette", true);
     	ffoptions.setProfile(profile);
     	
     	WebDriver driver = new FirefoxDriver(ffoptions);
