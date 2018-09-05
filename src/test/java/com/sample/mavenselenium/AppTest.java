@@ -53,17 +53,17 @@ public class AppTest
     public void testApp()
     {
     	
-    	test0();
+    	System.out.println("==>Start Test App");
     	
 //    	System.setProperty("webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe");
 
-//    	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe"); 
+    	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe"); 
 //    	System.setProperty("webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe");
     	
 //    	WebDriver driver = new FirefoxDriver();
 //    	driver.get("http://10.53.29.252:8080/Asistencia/");
 //		
-//    	FirefoxProfile profile = new FirefoxProfile();
+    	FirefoxProfile profile = new FirefoxProfile();
 //    	profile.setAcceptUntrustedCertificates(true);
     		//profile.setPreference("webdriver.firefox.profile", "ELEKTRA/ccruzm");
 		//    	FirefoxDriver driver = new FirefoxDriver();
@@ -72,17 +72,17 @@ public class AppTest
 //		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 //		driver.close();
 //
-//    	FirefoxOptions options = new FirefoxOptions()
+    	FirefoxOptions options = new FirefoxOptions()
 //    			.addPreference("browser.startup.page", 1)
-//    			.addPreference("browser.startup.homepage", "http://10.53.29.252:8080/Asistencia/")
-//    			.setProfile(profile)
+    			.addPreference("browser.startup.homepage", "http://10.53.29.252:8080/Asistencia/")
+    			.setProfile(profile);
 //    			.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
     			
 //    			.setLegacy(true);
 //    	options.setLogLevel(FirefoxDriverLogLevel.TRACE);
 //    	options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 //    	options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-//    	options.setCapability("marionette", false);
+    	options.setCapability("marionette", false);
 //    	options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
     	//options.setAcceptInsecureCerts(false);
 		
@@ -91,12 +91,12 @@ public class AppTest
     	
 //		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:8089/wd/hub"), options);
 		
-//		FirefoxDriver driver = new FirefoxDriver(options);	
+		FirefoxDriver driver = new FirefoxDriver(options);	
 //		try {
 				
 //			WebDriver driver = new FirefoxDriver(options);
 //			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//			driver.get("http://10.53.29.252:8080/Asistencia/");
+			driver.get("http://10.53.29.252:8080/Asistencia/");
 			
 			//WebDriver augmentedDriver = new Augmenter().augment(driver);
 //			driver.get("http://10.53.29.252:8080/Asistencia/");
@@ -110,8 +110,8 @@ public class AppTest
 //
 //			objUserField.sendKeys("163796");
 //			
-//			driver.close();
-//			driver.quit();
+			driver.close();
+			driver.quit();
 //		} catch (Exception e) {
 //			System.out.println("Error Test: "+e.getLocalizedMessage());
 //		}
@@ -120,7 +120,7 @@ public class AppTest
     }
     
     public static void test0() {
-    	System.out.println("==>Start Test App 101");
+    	System.out.println("==>Start Test 0");
     	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe");
     	
     	FirefoxOptions options = new FirefoxOptions()
