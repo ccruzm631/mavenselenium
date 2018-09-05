@@ -88,7 +88,7 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
-    private void testApp()
+    public void testApp()
     {
     	System.out.println("==>Start Test App");
     	
@@ -145,7 +145,7 @@ public class AppTest
         assertTrue( true );
     }
     
-    private static void test0() {
+    public static void test0() {
     	System.out.println("==>Start Test 0");
     	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe");
     	
@@ -172,7 +172,7 @@ public class AppTest
 		}
     }
     
-    private static void test() {
+    public static void test() {
     	System.out.println("==>Start Test");
     	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe"); 
     	
