@@ -52,8 +52,8 @@ public class AppTest
      */
     public void testApp()
     {
-    	System.out.println("==>Start Test App");
-    	testMario();
+    	
+    	test0();
     	
 //    	System.setProperty("webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe");
 
@@ -119,7 +119,35 @@ public class AppTest
         assertTrue( true );
     }
     
+    public static void test0() {
+    	System.out.println("==>Start Test App 101");
+    	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe");
+    	
+    	FirefoxOptions options = new FirefoxOptions()
+    			.addPreference("browser.startup.page", 1)
+    			.addPreference("browser.startup.homepage", "http://10.53.29.252:8080/Asistencia/");
+    		
+    	options.setCapability("marionette", true);
+    			
+    	
+    	try {
+			WebDriver driver = new RemoteWebDriver(new URL("http://localhost:8089/wd/hub"), options);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			WebElement objUserField = driver.findElement(By.id("numempleado"));
+			objUserField.click();	
+
+			objUserField.sendKeys("163796");
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.close();
+			driver.quit();
+			
+		} catch (MalformedURLException e) {
+			System.out.println("Error Test: "+e.getLocalizedMessage());
+		}
+    }
+    
     public static void test() {
+    	System.out.println("==>Start Test");
     	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe"); 
     	
     	FirefoxProfile profile = new FirefoxProfile();
@@ -139,10 +167,13 @@ public class AppTest
 		objUserField.click();	
 
 		objUserField.sendKeys("163796");
-    	
+		driver.close();
+		driver.quit();
+
     }
     
     public static void testMario() {
+    	System.out.println("==>Start TestMario");
     	System.setProperty("\"webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe"); 
     	
     	FirefoxProfile profile = new FirefoxProfile();
@@ -162,6 +193,8 @@ public class AppTest
 		objUserField.click();	
 
 		objUserField.sendKeys("163796");
-    	
+		driver.close();
+		driver.quit();
+
     }
 }
