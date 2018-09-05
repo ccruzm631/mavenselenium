@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ImmutableCapabilities;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -18,6 +20,7 @@ import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.session.FirefoxFilter;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -48,31 +51,43 @@ public class AppTest
     }
 
     /**
+     * 
+     */
+    public void testLP() {
+    	System.out.println("==>Start Test LP");
+    	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe");
+    	
+    	FirefoxOptions options = new FirefoxOptions();
+    	options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+    	options.setCapability("marionette", false);
+    	
+    	WebDriver driver = new FirefoxDriver();
+    	driver.get("http://10.53.29.252:8080/Asistencia/");
+    	
+    	
+    }
+    
+    /**
      * Rigourous Test :-)
      */
-    public void testApp()
+    private void testApp()
     {
-    	
     	System.out.println("==>Start Test App");
     	
 //    	System.setProperty("webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe");
 
     	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe"); 
 //    	System.setProperty("webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe");
+
     	
-//    	WebDriver driver = new FirefoxDriver();
-//    	driver.get("http://10.53.29.252:8080/Asistencia/");
-//		
     	FirefoxProfile profile = new FirefoxProfile();
-//    	profile.setAcceptUntrustedCertificates(true);
-    		//profile.setPreference("webdriver.firefox.profile", "ELEKTRA/ccruzm");
-		//    	FirefoxDriver driver = new FirefoxDriver();
-//
-//		driver.get("http://10.53.29.252:8080/Asistencia/");
-//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//		driver.close();
-//
-    	FirefoxOptions options = new FirefoxOptions()
+    	profile.setAcceptUntrustedCertificates(true);
+    	profile.setAssumeUntrustedCertificateIssuer(true);
+
+    	FirefoxOptions options = new FirefoxOptions(new ImmutableCapabilities("marionette", false, 
+    			CapabilityType.PAGE_LOAD_STRATEGY, PageLoadStrategy.EAGER,
+    			CapabilityType.ACCEPT_INSECURE_CERTS, true))
+    	
 //    			.addPreference("browser.startup.page", 1)
     			.addPreference("browser.startup.homepage", "http://10.53.29.252:8080/Asistencia/")
     			.setProfile(profile);
@@ -82,18 +97,11 @@ public class AppTest
 //    	options.setLogLevel(FirefoxDriverLogLevel.TRACE);
 //    	options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 //    	options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-    	options.setCapability("marionette", false);
-//    	options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-    	//options.setAcceptInsecureCerts(false);
-		
-//		DesiredCapabilities dc = new DesiredCapabilities();
-//		dc.setCapability("marionette", true);
-    	
-//		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:8089/wd/hub"), options);
-		
-		FirefoxDriver driver = new FirefoxDriver(options);	
-//		try {
-				
+//    	options.setCapability("marionette", false);
+    			
+//		FirefoxDriver driver = new FirefoxDriver(options);	
+		try {
+			RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
 //			WebDriver driver = new FirefoxDriver(options);
 //			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get("http://10.53.29.252:8080/Asistencia/");
@@ -105,21 +113,21 @@ public class AppTest
 //			driver.navigate().to("http://10.53.29.252:8080/Asistencia/");
 //			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 //			
-//			WebElement objUserField = driver.findElement(By.id("numempleado"));
-//			objUserField.click();	
-//
-//			objUserField.sendKeys("163796");
+			WebElement objUserField = driver.findElement(By.id("numempleado"));
+			objUserField.click();	
+
+			objUserField.sendKeys("163796");
 //			
 			driver.close();
 			driver.quit();
-//		} catch (Exception e) {
-//			System.out.println("Error Test: "+e.getLocalizedMessage());
-//		}
+		} catch (Exception e) {
+			System.out.println("Error Test: "+e.getLocalizedMessage());
+		}
     	
         assertTrue( true );
     }
     
-    public static void test0() {
+    private static void test0() {
     	System.out.println("==>Start Test 0");
     	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe");
     	
@@ -146,7 +154,7 @@ public class AppTest
 		}
     }
     
-    public static void test() {
+    private static void test() {
     	System.out.println("==>Start Test");
     	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe"); 
     	
@@ -172,29 +180,29 @@ public class AppTest
 
     }
     
-    public static void testMario() {
-    	System.out.println("==>Start TestMario");
-    	System.setProperty("\"webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe"); 
-    	
-    	FirefoxProfile profile = new FirefoxProfile();
-    	profile.setAcceptUntrustedCertificates(true);
-    	profile.setAssumeUntrustedCertificateIssuer(true);
-    	
-    	FirefoxOptions ffoptions = new FirefoxOptions();
-    	ffoptions.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-    	ffoptions.setCapability(CapabilityType.HAS_NATIVE_EVENTS, true);
-    	ffoptions.setCapability("acceptSslCerts", true);
-    	ffoptions.setCapability("marionette", true);
-    	ffoptions.setProfile(profile);
-    	
-    	WebDriver driver = new FirefoxDriver(ffoptions);
-    	driver.get("http://10.53.29.252:8080/Asistencia/");
-    	WebElement objUserField = driver.findElement(By.id("numempleado"));
-		objUserField.click();	
-
-		objUserField.sendKeys("163796");
-		driver.close();
-		driver.quit();
-
-    }
+//    public static void testMario() {
+//    	System.out.println("==>Start TestMario");
+//    	System.setProperty("\"webdriver.firefox.marionette", "C:\\tools\\geckodriver.exe"); 
+//    	
+//    	FirefoxProfile profile = new FirefoxProfile();
+//    	profile.setAcceptUntrustedCertificates(true);
+//    	profile.setAssumeUntrustedCertificateIssuer(true);
+//    	
+//    	FirefoxOptions ffoptions = new FirefoxOptions();
+//    	ffoptions.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+//    	ffoptions.setCapability(CapabilityType.HAS_NATIVE_EVENTS, true);
+//    	ffoptions.setCapability("acceptSslCerts", true);
+//    	ffoptions.setCapability("marionette", true);
+//    	ffoptions.setProfile(profile);
+//    	
+//    	WebDriver driver = new FirefoxDriver(ffoptions);
+//    	driver.get("http://10.53.29.252:8080/Asistencia/");
+//    	WebElement objUserField = driver.findElement(By.id("numempleado"));
+//		objUserField.click();	
+//
+//		objUserField.sendKeys("163796");
+//		driver.close();
+//		driver.quit();
+//
+//    }
 }
