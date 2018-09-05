@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -38,7 +39,7 @@ public class AppTest
         return new TestSuite( AppTest.class );
     }
    
-    public static void TestSuite() {
+    public static void test0() {
     	System.out.println("==>Start Test 0");
     	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe");
     	
@@ -47,6 +48,7 @@ public class AppTest
     			.addPreference("browser.startup.homepage", "http://10.53.29.252:8080/Asistencia/");
     		
     	options.setCapability("marionette", true);
+    			
     	
     	try {
 			WebDriver driver = new RemoteWebDriver(new URL("http://localhost:8089/wd/hub"), options);
@@ -67,6 +69,7 @@ public class AppTest
 			//submit: Envía los datos del formulario que contiene al elemento sobre el que invoca
 			objIngresarButton.submit();
 			
+			driver.close();
 			driver.quit();
 			
 		} catch (MalformedURLException e) {
