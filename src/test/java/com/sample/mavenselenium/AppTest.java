@@ -119,7 +119,7 @@ public class AppTest
     			
 //		FirefoxDriver driver = new FirefoxDriver(options);	
 		try {
-			RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+			RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:8089/wd/hub"), options);
 //			WebDriver driver = new FirefoxDriver(options);
 //			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get("http://10.53.29.252:8080/Asistencia/");
