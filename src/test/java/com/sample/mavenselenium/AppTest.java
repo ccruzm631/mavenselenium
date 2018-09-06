@@ -41,7 +41,7 @@ public class AppTest
 
    
     public static void test0() {
-    	System.out.println("==>Start Test 0");
+    	System.out.println("==>Start Test WebD");
     	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe");
     	
     	FirefoxOptions options = new FirefoxOptions()
