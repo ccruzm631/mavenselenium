@@ -71,7 +71,7 @@ public class AppTest
 			objIngresarButton.submit();
 			
 			driver.close();
-			driver.quit();
+			//driver.quit();
 			
 		} catch (MalformedURLException e) {
 			System.out.println("Error Test: "+e.getLocalizedMessage());
