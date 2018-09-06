@@ -1,7 +1,11 @@
 package com.sample.mavenselenium;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.sample.config.ConstantTest;
 import com.sample.globalmethods.MetodoGlobal;
@@ -19,10 +23,11 @@ public class TS0001_PortalAsistencia
 	private static String strPathDriver;
 	private static String strUser;
 	private static String strMasterKey;
-	private static int numIterations;
+//	private static int numIterations;
 	private static ProcessFile pf = new ProcessFile();
 	
 	public static WebDriver driver;
+	public static FirefoxOptions options; 
 	
 	/*
 	 * Método de carga de los parametros para
@@ -33,8 +38,8 @@ public class TS0001_PortalAsistencia
 		strURL = pf.readFileProperties("URL");
 		strBrowserDriver = pf.readFileProperties("browserDriver");
 		strPathDriver = pf.readFileProperties("pathDriver");
-		String rows = pf.readFileProperties("iteraciones");
-		numIterations = Integer.valueOf(rows);
+//		String rows = pf.readFileProperties("iteraciones");
+//		numIterations = Integer.valueOf(rows);
 				
 	}
 	
@@ -50,11 +55,17 @@ public class TS0001_PortalAsistencia
 		//Localización de Driver
 		System.setProperty(strBrowserDriver, strPathDriver);
 		
-		//Create Driver object for firefox Browser
-		driver = new FirefoxDriver();
+		options = new FirefoxOptions()
+				.addPreference("browser.startup.page", 1)
+				.addPreference("browser.startup.homepage", strURL);
+		options.setCapability("marionette", true);
 		
-		//get: Obtener una pagina
-		driver.get(strURL);
+		//Create Driver object for firefox Browser
+		try {
+			driver = new RemoteWebDriver(new URL("http://localhost:8089/wd/hub"), options);
+		} catch (MalformedURLException e) {
+			throw new RuntimeException("Error en creación de driver: " + e.getMessage());
+		}	
 	}
 	
 	/*
@@ -68,7 +79,7 @@ public class TS0001_PortalAsistencia
         
         ts001.loadParametersExcel(0);
         
-        RTS_LoginAsistenciaPage loginAsistencia = new RTS_LoginAsistenciaPage(strURL, strBrowserDriver, strPathDriver, strUser, strMasterKey);
+        RTS_LoginAsistenciaPage loginAsistencia = new RTS_LoginAsistenciaPage(strUser, strMasterKey);
         loginAsistencia.startTestLoginAsistencia(driver);
         
         MetodoGlobal mg = new MetodoGlobal();

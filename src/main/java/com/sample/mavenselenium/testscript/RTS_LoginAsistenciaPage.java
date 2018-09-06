@@ -20,7 +20,7 @@ public class RTS_LoginAsistenciaPage {
 	private WebElement objMasterKeyField;
 	private WebElement objIngresarButton;
 	
-	public RTS_LoginAsistenciaPage(String strURL, String strBrowserDriver, String strPathDriver, String strUser, String strMasterKey) {
+	public RTS_LoginAsistenciaPage(String strUser, String strMasterKey) {
 		this.strUser = strUser;
 		this.strMasterKey = strMasterKey;
 	}
@@ -33,8 +33,6 @@ public class RTS_LoginAsistenciaPage {
 		//tagName[attribute='value'] - CSS sintaxis (existen otras)
 		//
 		//Regular expression: tagName[contains(@attribute, 'value')] -xpath
-		
-		
 		
 		//findElements: Encuentra un conjunto de elementos web(por clase, XPATH)
 		//findElement: Encuentra un elemento web (por id, nombre de la etiqueta, nombre, texto de enlace - total o parcial, CSS)
@@ -61,7 +59,7 @@ public class RTS_LoginAsistenciaPage {
 		
 		//quit: Cierra el driver
 		
-		//driver.close();
+//		driver.close();
 		
 	}
 }
