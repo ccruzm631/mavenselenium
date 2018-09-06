@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -40,7 +39,7 @@ public class AppTest
     }
    
     public static void test0() {
-    	System.out.println("==>Start Test 0");
+    	System.out.println("==>Start Test WebDriver");
     	System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe");
     	
     	FirefoxOptions options = new FirefoxOptions()
@@ -69,7 +68,6 @@ public class AppTest
 			//submit: Envía los datos del formulario que contiene al elemento sobre el que invoca
 			objIngresarButton.submit();
 			
-			driver.close();
 			driver.quit();
 			
 		} catch (MalformedURLException e) {
