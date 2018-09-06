@@ -24,7 +24,7 @@ public class TS_LoginAsistenciastartTest extends TestCase {
 	public void testStartTestLoginAsistencia() {
 		System.out.println("Start: " + TS_LoginAsistenciastartTest.class.getSimpleName().toString());
   
-		System.setProperty("webdriver.gecko.driver", "C:\\tools\\geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", "Z:\\\\PruebasQA\\\\Driver\\\\geckodriver.exe");
 		
 		options = new FirefoxOptions()
 				.addPreference("browser.startup.page", 1)
