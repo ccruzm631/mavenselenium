@@ -33,7 +33,7 @@ public class TS_LoginAsistenciastartTest extends TestCase {
 		
 		//Create Driver object for firefox Browser
 		try {
-			driver = new RemoteWebDriver(new URL("http://localhost:8089/wd/hub"), options);
+			driver = new RemoteWebDriver(new URL("http://10.51.145.164:8089/wd/hub"), options);
 		} catch (MalformedURLException e) {
 			throw new RuntimeException("Error en creación de driver: " + e.getMessage());
 		}	
