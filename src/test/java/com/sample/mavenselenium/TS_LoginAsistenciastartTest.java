@@ -27,7 +27,7 @@ public class TS_LoginAsistenciastartTest extends TestCase {
 	}
 
 	public void testStartTestLoginAsistencia() {
-		System.out.println("Start: " + TS_LoginAsistenciastartTest.class.getSimpleName().toString());
+		System.out.println("Start Test : " + TS_LoginAsistenciastartTest.class.getSimpleName().toString());
 
 		//Read excel parameters
 		ProcessFile pf = new ProcessFile();
