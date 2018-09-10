@@ -9,11 +9,16 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.sample.config.ConstantTest;
 import com.sample.globalmethods.MetodoGlobal;
+import com.sample.globalmethods.ProcessFile;
 import com.sample.mavenselenium.testscript.RTS_LoginAsistenciaPage;
 
 import junit.framework.TestCase;
 
 public class TS_LoginAsistenciastartTest extends TestCase {
+	private static String strUser;
+	private static String strMasterKey;
+	private static String ipLocal;
+	
 	public static WebDriver driver;
 	public static FirefoxOptions options; 
 	
@@ -23,7 +28,13 @@ public class TS_LoginAsistenciastartTest extends TestCase {
 
 	public void testStartTestLoginAsistencia() {
 		System.out.println("Start: " + TS_LoginAsistenciastartTest.class.getSimpleName().toString());
-  
+
+		//Read excel parameters
+		ProcessFile pf = new ProcessFile();
+		strUser =  		pf.readExcelFile("TS0001_PortalAsistencia", 1, "Usuario");
+		strMasterKey = 	pf.readExcelFile("TS0001_PortalAsistencia", 1, "LlaveMaestra");
+		ipLocal = 		pf.readExcelFile("TS0001_PortalAsistencia", 1, "IPLocal");
+
 		System.setProperty("webdriver.gecko.driver", "Z:\\PruebasQA\\Driver\\geckodriver.exe");
 		
 		options = new FirefoxOptions()
@@ -33,12 +44,12 @@ public class TS_LoginAsistenciastartTest extends TestCase {
 		
 		//Create Driver object for firefox Browser
 		try {
-			driver = new RemoteWebDriver(new URL("http://10.51.145.164:8089/wd/hub"), options);
+			driver = new RemoteWebDriver(new URL("http://"+ ipLocal +":8089/wd/hub"), options);
 		} catch (MalformedURLException e) {
 			throw new RuntimeException("Error en creación de driver: " + e.getMessage());
 		}	
         
-        RTS_LoginAsistenciaPage loginAsistencia = new RTS_LoginAsistenciaPage("163796", "Cgruposalinas13");
+        RTS_LoginAsistenciaPage loginAsistencia = new RTS_LoginAsistenciaPage(strUser, strMasterKey);
         loginAsistencia.startTestLoginAsistencia(driver);
         
         MetodoGlobal mg = new MetodoGlobal();

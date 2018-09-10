@@ -62,7 +62,7 @@ public class ProcessFile {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return cellValue;
 	}
 	
 	public String readFileProperties(String atributo) {

@@ -23,6 +23,7 @@ public class TS0001_PortalAsistencia
 	private static String strPathDriver;
 	private static String strUser;
 	private static String strMasterKey;
+	private static String ipLocal;
 //	private static int numIterations;
 	private static ProcessFile pf = new ProcessFile();
 	
@@ -51,7 +52,8 @@ public class TS0001_PortalAsistencia
 		//Read Excel file
 		strUser =  pf.readExcelFile(TS0001_PortalAsistencia.class.getSimpleName().toString(), numRow, "Usuario");
 		strMasterKey = pf.readExcelFile(TS0001_PortalAsistencia.class.getSimpleName().toString(), numRow, "LlaveMaestra");
-		
+		ipLocal = pf.readExcelFile(TS0001_PortalAsistencia.class.getSimpleName().toString(), numRow, "IPLocal");
+				
 		//Localización de Driver
 		System.setProperty(strBrowserDriver, strPathDriver);
 		
@@ -62,7 +64,7 @@ public class TS0001_PortalAsistencia
 		
 		//Create Driver object for firefox Browser
 		try {
-			driver = new RemoteWebDriver(new URL("http://localhost:8089/wd/hub"), options);
+			driver = new RemoteWebDriver(new URL("http://"+ ipLocal +":8089/wd/hub"), options);
 		} catch (MalformedURLException e) {
 			throw new RuntimeException("Error en creación de driver: " + e.getMessage());
 		}	
@@ -77,7 +79,7 @@ public class TS0001_PortalAsistencia
                 
         loadParametersFile();
         
-        ts001.loadParametersExcel(0);
+        ts001.loadParametersExcel(1);
         
         RTS_LoginAsistenciaPage loginAsistencia = new RTS_LoginAsistenciaPage(strUser, strMasterKey);
         loginAsistencia.startTestLoginAsistencia(driver);
