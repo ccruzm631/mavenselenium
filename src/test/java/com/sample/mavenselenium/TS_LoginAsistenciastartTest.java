@@ -73,7 +73,7 @@ public class TS_LoginAsistenciastartTest extends TestCase {
 			String st;
 			while((st = read.readLine()) != null)
 				System.out.println(st);
-			
+			read.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
