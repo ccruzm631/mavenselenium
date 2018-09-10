@@ -69,7 +69,7 @@ public class TS_LoginAsistenciastartTest extends TestCase {
 		System.out.println("reading");
 		
 		try {
-			BufferedReader read = new BufferedReader(new FileReader("Z:\\\\PruebasQA\\\\FileTest\\\\ipLocal.txt"));
+			BufferedReader read = new BufferedReader(new FileReader("\\\\10.51.145.100\\\\xfer\\\\PruebasQA\\\\FileTest\\\\ipLocal.txt"));
 			String st;
 			while((st = read.readLine()) != null)
 				System.out.println(st);
