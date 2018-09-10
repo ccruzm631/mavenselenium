@@ -1,5 +1,9 @@
 package com.sample.mavenselenium;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -26,39 +30,58 @@ public class TS_LoginAsistenciastartTest extends TestCase {
 		super(name);
 	}
 
+//	public void testStartTestLoginAsistencia() {
+//		System.out.println("Start Test : " + TS_LoginAsistenciastartTest.class.getSimpleName().toString());
+//
+//		//Read excel parameters
+//		ProcessFile pf = new ProcessFile();
+//		strUser =  		pf.readExcelFile("TS0001_PortalAsistencia", 1, "Usuario");
+//		strMasterKey = 	pf.readExcelFile("TS0001_PortalAsistencia", 1, "LlaveMaestra");
+//		ipLocal = 		pf.readExcelFile("TS0001_PortalAsistencia", 1, "IPLocal");
+//
+//		System.setProperty("webdriver.gecko.driver", "Z:\\PruebasQA\\Driver\\geckodriver.exe");
+//		
+//		options = new FirefoxOptions()
+//				.addPreference("browser.startup.page", 1)
+//				.addPreference("browser.startup.homepage", "http://10.53.29.252:8080/Asistencia/");
+//		options.setCapability("marionette", true);
+//		
+//		//Create Driver object for firefox Browser
+//		try {
+//			driver = new RemoteWebDriver(new URL("http://"+ ipLocal +":8089/wd/hub"), options);
+//		} catch (MalformedURLException e) {
+//			throw new RuntimeException("Error en creación de driver: " + e.getMessage());
+//		}	
+//        
+//        RTS_LoginAsistenciaPage loginAsistencia = new RTS_LoginAsistenciaPage(strUser, strMasterKey);
+//        loginAsistencia.startTestLoginAsistencia(driver);
+//        
+//        MetodoGlobal mg = new MetodoGlobal();
+//        
+//        mg.pleaseWaiting(driver, ConstantTest.WAIT_THIRTEEN_SECONDS);
+//        driver.close();
+//		
+//        assertTrue(true);
+//
+//	}
+
 	public void testStartTestLoginAsistencia() {
-		System.out.println("Start Test : " + TS_LoginAsistenciastartTest.class.getSimpleName().toString());
-
-		//Read excel parameters
-		ProcessFile pf = new ProcessFile();
-		strUser =  		pf.readExcelFile("TS0001_PortalAsistencia", 1, "Usuario");
-		strMasterKey = 	pf.readExcelFile("TS0001_PortalAsistencia", 1, "LlaveMaestra");
-		ipLocal = 		pf.readExcelFile("TS0001_PortalAsistencia", 1, "IPLocal");
-
-		System.setProperty("webdriver.gecko.driver", "Z:\\PruebasQA\\Driver\\geckodriver.exe");
+		System.out.println("reading");
 		
-		options = new FirefoxOptions()
-				.addPreference("browser.startup.page", 1)
-				.addPreference("browser.startup.homepage", "http://10.53.29.252:8080/Asistencia/");
-		options.setCapability("marionette", true);
-		
-		//Create Driver object for firefox Browser
 		try {
-			driver = new RemoteWebDriver(new URL("http://"+ ipLocal +":8089/wd/hub"), options);
-		} catch (MalformedURLException e) {
-			throw new RuntimeException("Error en creación de driver: " + e.getMessage());
-		}	
-        
-        RTS_LoginAsistenciaPage loginAsistencia = new RTS_LoginAsistenciaPage(strUser, strMasterKey);
-        loginAsistencia.startTestLoginAsistencia(driver);
-        
-        MetodoGlobal mg = new MetodoGlobal();
-        
-        mg.pleaseWaiting(driver, ConstantTest.WAIT_THIRTEEN_SECONDS);
-        driver.close();
+			BufferedReader read = new BufferedReader(new FileReader("Z:\\\\PruebasQA\\\\FileTest\\\\ipLocal.txt"));
+			String st;
+			while((st = read.readLine()) != null)
+				System.out.println(st);
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-        assertTrue(true);
-
+		assertTrue(true);
 	}
-
 }
