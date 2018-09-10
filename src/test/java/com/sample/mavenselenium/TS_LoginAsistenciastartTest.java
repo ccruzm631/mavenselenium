@@ -24,7 +24,7 @@ public class TS_LoginAsistenciastartTest extends TestCase {
 	public void testStartTestLoginAsistencia() {
 		System.out.println("Start: " + TS_LoginAsistenciastartTest.class.getSimpleName().toString());
   
-		System.setProperty("webdriver.gecko.driver", "Z:\\\\PruebasQA\\\\Driver\\\\geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", "Z:\\PruebasQA\\Driver\\geckodriver.exe");
 		
 		options = new FirefoxOptions()
 				.addPreference("browser.startup.page", 1)
@@ -33,7 +33,7 @@ public class TS_LoginAsistenciastartTest extends TestCase {
 		
 		//Create Driver object for firefox Browser
 		try {
-			driver = new RemoteWebDriver(new URL("http://10.51.145.164:8089/wd/hub"), options);
+			driver = new RemoteWebDriver(new URL("http://localhost:8089/wd/hub"), options);
 		} catch (MalformedURLException e) {
 			throw new RuntimeException("Error en creación de driver: " + e.getMessage());
 		}	
@@ -43,7 +43,7 @@ public class TS_LoginAsistenciastartTest extends TestCase {
         
         MetodoGlobal mg = new MetodoGlobal();
         
-        mg.pleaseWaiting(driver, ConstantTest.WAIT_FIVE_SECONDS);
+        mg.pleaseWaiting(driver, ConstantTest.WAIT_THIRTEEN_SECONDS);
         driver.close();
 		
         assertTrue(true);
