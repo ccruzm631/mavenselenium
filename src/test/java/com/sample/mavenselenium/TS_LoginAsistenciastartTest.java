@@ -35,6 +35,7 @@ public class TS_LoginAsistenciastartTest extends TestCase {
 		strMasterKey = 	pf.readExcelFile("TS0001_PortalAsistencia", 1, "LlaveMaestra");
 		ipLocal = 		pf.readExcelFile("TS0001_PortalAsistencia", 1, "IPLocal");
 
+		System.out.println("IP: "+ipLocal);
 		System.setProperty("webdriver.gecko.driver", "Z:\\PruebasQA\\Driver\\geckodriver.exe");
 		
 		options = new FirefoxOptions()
