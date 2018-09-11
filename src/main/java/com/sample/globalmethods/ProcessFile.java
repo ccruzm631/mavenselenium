@@ -52,14 +52,14 @@ public class ProcessFile {
 			if (rowSearched != -1)
 				cellValue = dataFormatter.formatCellValue(sheet.getRow(rowNumber).getCell(rowSearched));
 			
+			if (workbook != null)
+				workbook.close();
+			
 		} catch (EncryptedDocumentException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvalidFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return cellValue;
